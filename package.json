@@ -1,0 +1,50 @@
+{
+  "name": "spoony-initiative",
+  "productName": "Spoony Initiative",
+  "description": "A simple initiative tracker for D&D 5e.",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "0.1.0",
+  "author": "Christian Syska",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "27.0.4",
+    "@electron-forge/cli": "6.4.1",
+    "@electron-forge/maker-deb": "6.4.1",
+    "@electron-forge/maker-rpm": "6.4.1",
+    "@electron-forge/maker-squirrel": "6.4.1",
+    "@electron-forge/maker-zip": "6.4.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel"
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "license": "MIT"
+}
