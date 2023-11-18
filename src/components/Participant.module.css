@@ -1,0 +1,30 @@
+.participantcard {
+  border: 2px solid;
+  margin: 5px;
+  padding: 5px;
+  float: left;
+  border-radius: 5px;
+}
+
+.participantcard:hover {
+  cursor: pointer;
+}
+
+.active {
+  zoom: 120%;
+}
+
+.unconscious {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.unconscious:after {
+  content: "Unconscious";
+  padding: 5px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  font-size: .7rem;
+}
+
+
