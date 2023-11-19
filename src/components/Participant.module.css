@@ -14,6 +14,15 @@
   zoom: 120%;
 }
 
+.active:before {
+  content: "Active";
+  padding: 5px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-size: .7rem;
+}
+
 .unconscious {
   background-color: rgba(255, 0, 0, 0.5);
 }
