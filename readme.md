@@ -3,7 +3,8 @@
 ![Logo](./assets/icon.svg)
 
 [![Build Status][github-actions-status]][github-actions-url]
-[![Github Tag][github-tag-image]][github-tag-url]
+
+[//]: # ([![Github Tag][github-tag-image]][github-tag-url])
 
 ## A simple initiative tracker for D&D 5e (and probably other systems)
 
@@ -30,3 +31,12 @@ This project is based on
 the [Electron React Boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate).
 It is an open-source project template licensed under the MIT license and has helped greatly in getting this project
 started.
+
+[github-actions-status]: https://github.com/SpoonOfDoom/SpoonyInitiative/workflows/Test/badge.svg
+
+[github-actions-url]: https://github.com/SpoonOfDoom/SpoonyInitiative/actions
+
+[github-tag-image]: https://img.shields.io/github/tag/SpoonOfDoom/SpoonyInitiative.svg?label=version
+
+[github-tag-url]: https://github.com/SpoonOfDoom/SpoonyInitiative/releases/latest
+
