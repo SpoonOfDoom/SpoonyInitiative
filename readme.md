@@ -1,10 +1,15 @@
 # Spoony Initiative
 
-![Logo](./assets/icon.svg)
+<p align="center">
+ <img src='./assets/icon.svg' width=50% />
+</p>
 
+---
 [![Build Status][github-actions-status]][github-actions-url]
 
 [//]: # ([![Github Tag][github-tag-image]][github-tag-url])
+
+---
 
 ## A simple initiative tracker for D&D 5e (and probably other systems)
 
