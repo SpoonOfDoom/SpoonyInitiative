@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import classes from './Participant.module.css';
 
 export interface ParticipantProps {
@@ -5,23 +6,40 @@ export interface ParticipantProps {
   initiative: number;
   isActive?: boolean;
   isUnconscious?: boolean;
+  onInitiativeChange?: (initiative: number) => void;
   onClick?: () => void;
 }
 
 function Participant({
-  name,
+  name: initialName,
   initiative,
   isActive,
   isUnconscious,
+  onInitiativeChange,
 }: Readonly<ParticipantProps>) {
+  const [name, setName] = useState(initialName);
+
   return (
     <div
       className={`${classes.participantcard} ${
         isActive ? classes.active : ''
       } ${isUnconscious ? classes.unconscious : ''}  `}
     >
-      <p>Name: {name}</p>
-      <p>Initiative: {initiative}</p>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="number"
+        value={initiative}
+        onChange={(e) => {
+          console.log('hallo?');
+          return (
+            onInitiativeChange && onInitiativeChange(parseInt(e.target.value))
+          );
+        }}
+      />
     </div>
   );
 }

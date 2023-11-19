@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Participant, { ParticipantProps } from './Participant';
 import styles from './InitiativeView.module.css';
 
@@ -6,14 +6,38 @@ interface InitiativeViewProps {
   participants: ParticipantProps[];
 }
 
-function InitiativeView({ participants }: Readonly<InitiativeViewProps>) {
+function InitiativeView({
+  participants: initialParticipants,
+}: Readonly<InitiativeViewProps>) {
   const [activeParticipant, setActiveParticipant] = useState<string | null>(
     null,
   );
-  participants.sort((a, b) => b.initiative - a.initiative);
-  if (activeParticipant === null) {
-    setActiveParticipant(participants[0].name);
-  }
+
+  const [participants, setParticipants] = useState<ParticipantProps[]>([]);
+
+  useEffect(() => {
+    const sortedParticipants = [...initialParticipants].sort(
+      (a, b) => b.initiative - a.initiative,
+    );
+    setParticipants(sortedParticipants);
+
+    if (activeParticipant === null && sortedParticipants.length > 0) {
+      setActiveParticipant(sortedParticipants[0].name);
+    }
+  }, [initialParticipants, activeParticipant]);
+
+  const handleInitiativeChange = (name: string, newInitiative: number) => {
+    const newParticipantsArray = participants
+      .map((participant) =>
+        participant.name === name
+          ? { ...participant, initiative: newInitiative }
+          : participant,
+      )
+      .sort((a, b) => b.initiative - a.initiative); // sort the array
+
+    setParticipants(newParticipantsArray);
+  };
+
   const advanceTurn = () => {
     const currentIndex = participants.findIndex(
       (participantProps) => participantProps.name === activeParticipant,
@@ -32,6 +56,9 @@ function InitiativeView({ participants }: Readonly<InitiativeViewProps>) {
             name={participantProps.name}
             isActive={participantProps.name === activeParticipant}
             initiative={participantProps.initiative}
+            onInitiativeChange={(newInitiative) =>
+              handleInitiativeChange(participantProps.name, newInitiative)
+            }
           />
         ))}
       </div>
