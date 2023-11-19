@@ -1,5 +1,10 @@
 # Spoony Initiative
 
+![Logo](./assets/icon.svg)
+
+[![Build Status][github-actions-status]][github-actions-url]
+[![Github Tag][github-tag-image]][github-tag-url]
+
 ## A simple initiative tracker for D&D 5e (and probably other systems)
 
 This is a simple initiative tracker for D&D 5e. It's designed to be used on a computer, tablet or other device at the
