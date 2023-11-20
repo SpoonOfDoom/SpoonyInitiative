@@ -20,11 +20,13 @@ function InitiativeView({
       (a, b) => b.initiative - a.initiative,
     );
     setParticipants(sortedParticipants);
+  }, [initialParticipants]);
 
-    if (activeParticipant === null && sortedParticipants.length > 0) {
-      setActiveParticipant(sortedParticipants[0].name);
+  useEffect(() => {
+    if (activeParticipant === null && participants.length > 0) {
+      setActiveParticipant(participants[0].name);
     }
-  }, [initialParticipants, activeParticipant]);
+  }, [participants, activeParticipant]);
 
   const handleInitiativeChange = (name: string, newInitiative: number) => {
     const newParticipantsArray = participants
