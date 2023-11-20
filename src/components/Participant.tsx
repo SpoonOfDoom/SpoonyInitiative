@@ -34,9 +34,9 @@ function Participant({
         type="number"
         value={initiative}
         onChange={(e) => {
-          console.log('hallo?');
           return (
-            onInitiativeChange && onInitiativeChange(parseInt(e.target.value))
+            onInitiativeChange &&
+            onInitiativeChange(parseInt(e.target.value, 10))
           );
         }}
       />
